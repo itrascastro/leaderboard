@@ -6,3 +6,9 @@ Template.players.helpers({
     {name: 'Robert', score: 20}
   ]
 });
+
+Template.players.events({
+  'click .player': function(e, t) {
+    return alert(this.name);
+  }
+});
