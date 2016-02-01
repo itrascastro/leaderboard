@@ -1,0 +1,17 @@
+<head>
+  <title>LeaderBoard</title>
+</head>
+
+<body>
+  <h1>LeaderBoard</h1>
+
+  {{> players}}
+</body>
+
+<template name="players">
+  <ul>
+  {{#each players}}
+    <li>{{name}} : {{score}}</li>
+  {{/each}}
+  </ul>
+</template>
