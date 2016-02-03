@@ -1,14 +1,11 @@
 Template.players.helpers({
-  players: [
-    {name: 'John', score: 5},
-    {name: 'Larry', score: 10},
-    {name: 'Kevin', score: 15},
-    {name: 'Robert', score: 20}
-  ]
+  players: Players.find()
 });
 
-Template.players.events({
-  'click .player': function(e, t) {
-    return alert(this.name);
+Template.body.events({
+  'submit form': function(e,t) {
+    Players.insert({name: t.find('#playerName').value, score: 0});
+    t.find('#playerName').value = '';
+    e.preventDefault();
   }
 });
