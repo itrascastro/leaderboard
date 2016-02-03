@@ -11,14 +11,28 @@
       <input type="submit">
     </form>
   </div>
-
-  {{> players}}
+  <div>
+    {{> players}}
+  </div>
 </body>
 
 <template name="players">
-  <ul>
+  <table>
+    <tr>
+      <td><b>Name</b></td>
+      <td><b>Score</b></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
   {{#each players}}
-    <li class="player">{{name}} : {{score}}</li>
+    <tr>
+      <td>{{name}}</td>
+      <td>{{score}}</td>
+      <td><input class="increment" type="button" value="+"></td>
+      <td><input class="decrement" type="button" value="-"></td>
+      <td><a class="remove" href="">Remove</a></td>
+    </tr>
   {{/each}}
-  </ul>
+  </table>
 </template>
