@@ -1,10 +1,19 @@
 Template.players.helpers({
-  players: Players.find({}, {sort:{score: -1, name: +1}})
+  players: Players.find(
+    {createdby: Meteor.userId()},
+    {sort:{score: -1, name: +1}}
+  )
 });
 
 Template.body.events({
   'submit form': function(e,t) {
-    Players.insert({name: t.find('#playerName').value, score: 0});
+    Players.insert(
+      {
+        createdBy: Meteor.userId(),
+        name: t.find('#playerName').value,
+        score: 0
+      }
+    );
     t.find('#playerName').value = '';
     e.preventDefault();
   }

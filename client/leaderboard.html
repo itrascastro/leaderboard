@@ -3,17 +3,23 @@
 </head>
 
 <body>
-  <h1>LeaderBoard</h1>
+  <div id="top-bar">
+    {{> loginButtons align="right"}}
+  </div>
 
-  <div>
-    <form>
-      <input id="playerName" type="text">
-      <input type="submit">
-    </form>
-  </div>
-  <div>
-    {{> players}}
-  </div>
+  {{#if currentUser}}
+    <h1>LeaderBoard</h1>
+
+    <div>
+      <form>
+        <input id="playerName" type="text">
+        <input type="submit">
+      </form>
+    </div>
+    <div>
+      {{> players}}
+    </div>
+  {{/if}}
 </body>
 
 <template name="players">
